@@ -24,4 +24,20 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/teams/create', function () {
+    return Inertia::render('TeamForm');
+})->name('teams.create');
+
+Route::get('/events/create', function () {
+    return Inertia::render('EventForm');
+})->name('events.create');
+
+Route::get('/teams', function () {
+    return Inertia::render('TeamList');
+})->name('teams.index');
+
+Route::get('/events', function () {
+    return Inertia::render('EventList');
+})->name('events.index');
+
 require __DIR__.'/auth.php';
